@@ -47,7 +47,7 @@ text-align: center;
 }
 
 .flex-justify {
-  justify-Content: "space-between";
+  justify-Content: space-between;
   display: flex
 }
 
@@ -65,5 +65,6 @@ text-align: center;
 }
 
 .page {
-  margin-top: 8rem;
+  margin-top: 4rem;
+  padding: 2rem
 }

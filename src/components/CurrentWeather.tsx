@@ -19,18 +19,18 @@ const CurrentWeather = () => {
       </Typography>
 
       <Grid container spacing={2} alignItems="center">
-        <Grid className="flex" size={{ xs: 4 }} >
+        <Grid className="flex" size={{ xs: 6 }} >
           <img
             src={weatherData.current.condition.icon}
             alt={weatherData.current.condition.text}
           />
         </Grid>
 
-        <Grid className="flex" size={{ xs: 4 }} >
+        <Grid size={{ xs: 6 }} >
           <Typography variant="h3">
             {Math.round(weatherData.current.temp_c)}°C
           </Typography>
-          <Typography variant="subtitle1">
+          <Typography className="bold">
             {weatherData.current.condition.text}
           </Typography>
         </Grid>
