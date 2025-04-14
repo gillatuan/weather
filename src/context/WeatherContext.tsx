@@ -7,11 +7,11 @@ export const WeatherContext = createContext<WeatherContextProps>({
   city: "",
   setCity: (city: string) => {},
   forecastData: null,
-  setForecastData: (data: ForecastData) => {},
+  setForecastData: (data: ForecastData | null) => {},
   searchHistory: null,
   setSearchHistory: (data: SearchHistoryItem[]) => {},
   weatherData: null,
-  setWeatherData: (data: WeatherData) => {},
+  setWeatherData: (data: WeatherData | null) => {},
 });
 
 export const WeatherContextProvider = ({

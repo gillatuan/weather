@@ -5,11 +5,11 @@ export interface WeatherContextProps {
   city: string | '';
   setCity: (city: string) => void;
   forecastData: ForecastData | null;
-  setForecastData: (data: ForecastData) => void;
+  setForecastData: (data: ForecastData | null) => void;
   searchHistory: SearchHistoryItem[] | [] | null,
   setSearchHistory: (data: SearchHistoryItem[]) => void,
   weatherData: WeatherData | null;
-  setWeatherData: (data: WeatherData) => void;
+  setWeatherData: (data: WeatherData | null) => void;
 }
 
 export interface WeatherData {
