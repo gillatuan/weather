@@ -20,7 +20,7 @@ const Forecast = () => {
 
       {Object.entries(grouped).map(([date, items]) => (
         <Box key={date} mb={4}>
-          <Paper elevation={3} sx={{ padding: 2 }}>
+          <Paper elevation={3} className="paper-forcast">
             <Typography variant="h6" gutterBottom>
               {dayjs(date).isSame(dayjs(), "day")
                 ? "Today"

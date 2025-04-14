@@ -1,70 +1,93 @@
-/* styles/global.css */
+/* styles/global#.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-.red {
+#root .red {
   color: red;
 }
 
-.weather-summary {
+#root .weather-summary {
   margin-bottom: 20px;
 }
 
-.forecast {
+#root .forecast {
   display: flex;
   justify-content: space-between;
 }
 
-.forecast-item {
+#root .forecast-item {
   flex: 1;
   text-align: center;
 }
 
-.search input {
+#root .search input {
   padding: 8px;
 }
 
-.search button {
+#root .search button {
   padding: 8px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
-.bold {
+#root .bold {
   font-weight: bold;
 }
-.bold-center {
-font-weight: bold;
-text-align: center;
+#root .bold-center {
+  font-weight: bold;
+  text-align: center;
 }
 
-.flex {
+#root .flex {
   display: flex;
   align-items: center;
 }
 
-.flex-justify {
-  justify-Content: space-between;
-  display: flex
+#root .flex-justify {
+  justify-content: space-between;
+  display: flex;
 }
 
-.align-right {
+#root .align-right {
   display: inline-block;
   text-align: right;
 }
-.paper {
+#root .paper {
   padding: 10;
-  margin: 10
+  margin: 10;
+}
+#root .paper-forcast {
+  padding: 16px;
 }
 
-.flexGrow {
+#root .flexGrow {
   flex-grow: 1;
 }
 
-.page {
+#root .page {
   margin-bottom: 4rem;
-  padding: 2rem
+  padding: 2rem;
+}
+
+#root .list-item {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+#root .pointer:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#root .fontSize17 {
+  font-size: 17px;
+}
+
+#root .error-fallback {
+  color: red;
+  padding: 2rem;
+  text-align: center;
 }

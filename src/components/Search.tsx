@@ -14,42 +14,48 @@ const Search = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [error, setError] = useState("");
+  const [ error, setError ] = useState<string>( "" );
   const { city, setCity, setForecastData, setSearchHistory, setWeatherData } =
-    useContext(WeatherContext);
+    useContext( WeatherContext );
+  const [ cityVal, setCityVal ] = useState<string>( city );
 
   const handleSearch = async () => {
-    if (!city.trim()) return;
+    if ( !cityVal.trim() ) return;
     try {
-      const data = await fetchWeatherData(city);
+      setError( '' )
+
+      const data = await fetchWeatherData( cityVal );
       const { pathname } = location;
-      setWeatherData({
+      setWeatherData( {
         current: data.current,
         location: data.location,
-      });
-      setForecastData({
+      } );
+      setForecastData( {
         forecast: data.forecast,
-      });
+      } );
+      setCity( cityVal )
 
       // 📦 Save encrypt history
       const name = data.location.name;
-      const existing = loadEncryptedFromLocalStorage(SECRET_KEY) || [];
+      const existing = loadEncryptedFromLocalStorage( SECRET_KEY ) || [];
       const updated: SearchHistoryItem[] = [
         { city: name, timestamp: Date.now() },
         ...existing.filter(
-          (item: SearchHistoryItem) =>
+          ( item: SearchHistoryItem ) =>
             item.city.toLowerCase() !== name.toLowerCase()
         ),
-      ].slice(0, 10);
+      ].slice( 0, 10 );
 
-      saveEncryptedToLocalStorage(SECRET_KEY, updated);
-      setSearchHistory(updated);
+      saveEncryptedToLocalStorage( SECRET_KEY, updated );
+      setSearchHistory( updated );
 
-      if (pathname === "/search") {
-        return navigate("/");
+      if ( pathname === "/search" ) {
+        return navigate( "/" );
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch ( err: any ) {
+      setWeatherData( null )
+      setForecastData( null )
+      setError( err.message );
     }
   };
 
@@ -59,8 +65,8 @@ const Search = () => {
         <TextField
           label="City"
           placeholder="Search country or city here"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          value={cityVal}
+          onChange={( e ) => setCityVal( e.target.value )}
           fullWidth
         />
         <Button variant="contained" onClick={handleSearch}>
@@ -68,7 +74,7 @@ const Search = () => {
         </Button>
       </Box>
       {error && (
-        <Box display="flex" gap={1} mb={2} className="bold">
+        <Box display="flex" gap={1} mb={2} className="bold red">
           {error}
         </Box>
       )}

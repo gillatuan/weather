@@ -1,12 +1,14 @@
 // src/App.tsx
-import { CssBaseline, Container, AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { Routes, Route, Link } from 'react-router-dom';
+import { AppBar, Button, Container, CssBaseline, Toolbar, Typography } from '@mui/material';
+import { Link, Route, Routes } from 'react-router-dom';
+import ErrorFallback from "./components/ErrorFallback";
 import { WeatherContextProvider } from './context/WeatherContext';
-import {Home} from './pages/Home';
-import {SearchHistory} from './pages/SearchHistory';
-import "./global.css"
+import "./global.css";
+import { Home } from './pages/Home';
+import { SearchHistory } from './pages/SearchHistory';
 
 export const App = () => {
+
   return (
     <WeatherContextProvider>
       <CssBaseline />
@@ -24,6 +26,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchHistory />} />
+          <Route path="*" element={<ErrorFallback />} />
         </Routes>
       </Container>
     </WeatherContextProvider>

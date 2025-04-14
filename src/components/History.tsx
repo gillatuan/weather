@@ -52,7 +52,7 @@ const History = () => {
       <List>
         {history?.map((item, idx) => {
           return (
-            <ListItem>
+            <ListItem key={`${item.timestamp}-${idx}`} className="list-item pointer">
               <ListItemText
                 primary={item.city}
                 onClick={() => handleClick(item.city)}

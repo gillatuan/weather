@@ -67,7 +67,7 @@ const CurrentWeather = () => {
         <Grid size={4}>
           <Typography component={"div"}>Visibility</Typography>
           <Typography component={"div"} className="bold">
-            <span style={{ fontSize: 17 }}>
+            <span className="fontSize17">
               {weatherData.current.vis_km / 1000}
             </span>{" "}
             km
